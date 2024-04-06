@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM Import Example</title>
+    <script type="module">
+        import module from './build_wasm/test-wasm.js';
+        const Module = await module();
+        const test = new Module.Test();
+
+        test.delete();
+        Module.doLeakCheck();
+    </script>
+</head>
+<body>
+</body>
+</html>
